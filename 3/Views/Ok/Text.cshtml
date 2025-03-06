@@ -1,0 +1,8 @@
+@* file Ok but Model OkText *@
+@* @model Core_1.Models.OkText *@
+@model OkText
+<h1>@Model.Title</h1> 
+ <p><span>ID: </span> @Model.Id</p>
+ <p>@Model.Text</p>   
+
+<a href=@Url.Action("Index", "Home")>Home.Action</a>

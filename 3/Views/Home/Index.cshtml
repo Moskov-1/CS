@@ -1,0 +1,22 @@
+<h1>LOL FrameWork</h1>
+
+<div>
+    <a href=@Url.Action("Index", "Ok")>
+        OK Index</a>
+    <br/>
+    <a asp-controller="Ok" asp-action="Index" asp-route-id="2">
+        Ok.Index Attr</a>
+    <br/>
+    <a asp-controller="Ok" asp-action="Index" asp-route-id="44">
+        Ok.Work Attr</a>
+    <br/>
+    <a asp-controller="Ok" asp-action="OkText" asp-route-id="44">
+        Ok.Text Attr</a>
+    <br/>
+     <a asp-controller="Ok" asp-action="OkChat" asp-route-id="44">
+        Ok.Chat Attr</a>
+    <br/>
+    
+</div>
+<p>asp-controller needs @("@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers") in _viewimports</p> 
+
