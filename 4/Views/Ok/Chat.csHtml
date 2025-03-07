@@ -1,0 +1,24 @@
+@model IEnumerable<Core_1.Models.OkText>
+
+<h2>People List</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Text</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var text in Model)
+        {
+            <tr>
+                <td>@text.Id</td>
+                <td>@text.Title</td>
+                <td>@text.Text</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-controller="Home" asp-action="Index">Home.Attr</a>

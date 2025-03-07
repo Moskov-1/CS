@@ -1,0 +1,16 @@
+
+@{
+    ViewBag.title = "view bag title";
+    @* Layout = "~/Views/Shared/_Layout.cshtml"; *@
+}
+<h1> OK Ok.cshtml</h1>
+@ViewData["Message"]
+<div>
+    <a href=@Url.Action("Index", "Home")>
+        Home</a>
+    <br/>
+    <a asp-controller="Home" asp-action="Index" asp-route-id='1' asp-route-test="will-it-work"> 
+        Home.Attr.Query.NonExistent</a>
+</div>    
+<p>asp-controller needs @("@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers") in _viewimports</p> 
+<br/>

@@ -1,0 +1,42 @@
+@model Person
+<form method="post"
+asp-action="Index" asp-asp-controller="Form"> 
+
+    <label asp-for="Name"></label>
+    <input placeholder="Name" required asp-for="Name"/>
+    <span asp-validation-for="Name" style="color: red;"></span>
+    <br/>
+
+    <label asp-for="Age"></label>
+    <input placeholder="Age" required asp-for="Age"/>
+ <span asp-validation-for="Age" style="color: red;"></span>
+    <br/>
+    <label asp-for="FavLang"></label>
+    <select asp-for="FavLang">
+        <option value="" disabled selected>Select Language</option>
+
+        <option value="Python">Python</option>
+        <option value="CSharp">CSharp</option>
+        <option value="C++">C++</option>
+    </select>
+     <span asp-validation-for="FavLang" style="color: red;"></span>
+    <br/>
+    <label asp-for="Phone"></label>
+    <input type="phone" required asp-for="Phone"/>
+    <span asp-validation-for="FavLang" style="color: red;"></span>
+    <br/>
+    <label for="male">pola</label>
+    <input id="male" type="radio" value="Male" asp-for="Gender"/>
+    <label for="female">maiya</label>
+    <input id="female" type="radio" value="Female" asp-for="Gender"/>
+     <span asp-validation-for="Gender" style="color: red;"></span> 
+    <br/>
+    <label asp-for="Pass">Password</label>
+     <input type='password' required asp-for="Pass"/>
+     <br/>  
+      <label asp-for="ConfirmPass">Confirm Password</label>
+     <input type='password' required asp-for="ConfirmPass"/>
+     <br/>   
+     <button type="submit">Submit</button>
+</form>
+<a href=@Url.Action("Index", "Home")>Home.Action<a/>
