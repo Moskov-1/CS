@@ -1,0 +1,24 @@
+@model User
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+<form asp-controller="Home" asp-action="Create" method='post'>
+    <label asp-for="Name"></label>
+    <input asp-for="Name" />
+    <span asp-validation-for="Name"></span>
+    <br/>
+    <label asp-for="Age"></label>
+    <input asp-for="Age" />
+    <span asp-validation-for="Age"></span>
+    <br/>
+    <label asp-for="Pass"></label>
+    <input asp-for="Pass" />
+    <span asp-validation-for="Pass"></span>
+    <br />
+    <label for="ConfirmPass">Confirm Password</label>
+
+    <input name="ConfirmPass" type="password"/>
+    <span style="color:red;">@Html.ValidationMessage("ConfirmPass")</span>
+    <br />
+    <button type="submit">OK</button>
+</form>
