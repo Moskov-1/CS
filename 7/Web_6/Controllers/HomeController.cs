@@ -77,6 +77,7 @@ public class HomeController : Controller
         return View(user);
     }
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public IActionResult Edit(User user)
     {
         if (!ModelState.IsValid)
@@ -93,6 +94,29 @@ public class HomeController : Controller
 
         _context.SaveChanges();
         return RedirectToAction("Form");
+    }
+    public IActionResult Delete(int id)
+    {
+        var user = _context.Users.FirstOrDefault(x => x.Id == id);
+        if(user == null)
+        {
+            return NotFound();
+        }
+        return View(user);
+    }
+
+    [HttpPost, ActionName("Delete")]
+    [ValidateAntiForgeryToken]
+    public IActionResult YesDelete(int id)
+    {
+        var user = _context.Users.FirstOrDefault(x => x.Id == id);
+        if (user == null)
+        {
+            return NotFound();
+        }
+        _context.Users.Remove(user);
+        _context.SaveChanges();
+        return View(user);
     }
     public IActionResult Privacy()
     {
