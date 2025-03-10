@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "D:\\WORK\\PROJECTS\\PRACTICE\\CS\\7\\Web_6\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A09D31F5-66B7-4273-BDCD-ADC5EB8F376E}|Web_6.csproj|d:\\work\\projects\\practice\\cs\\7\\web_6\\views\\home\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A09D31F5-66B7-4273-BDCD-ADC5EB8F376E}|Web_6.csproj|solutionrelative:views\\home\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A09D31F5-66B7-4273-BDCD-ADC5EB8F376E}|Web_6.csproj|d:\\work\\projects\\practice\\cs\\7\\web_6\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A09D31F5-66B7-4273-BDCD-ADC5EB8F376E}|Web_6.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A09D31F5-66B7-4273-BDCD-ADC5EB8F376E}|Web_6.csproj|d:\\work\\projects\\practice\\cs\\7\\web_6\\views\\home\\form.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A09D31F5-66B7-4273-BDCD-ADC5EB8F376E}|Web_6.csproj|solutionrelative:views\\home\\form.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A09D31F5-66B7-4273-BDCD-ADC5EB8F376E}|Web_6.csproj|d:\\work\\projects\\practice\\cs\\7\\web_6\\views\\home\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -26,55 +18,29 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "D:\\WORK\\PROJECTS\\PRACTICE\\CS\\7\\Web_6\\Views\\Home\\Delete.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Delete.cshtml",
-              "ToolTip": "D:\\WORK\\PROJECTS\\PRACTICE\\CS\\7\\Web_6\\Views\\Home\\Delete.cshtml",
-              "RelativeToolTip": "Views\\Home\\Delete.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-10T08:51:54.348Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Form.cshtml",
-              "DocumentMoniker": "D:\\WORK\\PROJECTS\\PRACTICE\\CS\\7\\Web_6\\Views\\Home\\Form.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Form.cshtml",
-              "ToolTip": "D:\\WORK\\PROJECTS\\PRACTICE\\CS\\7\\Web_6\\Views\\Home\\Form.cshtml",
-              "RelativeToolTip": "Views\\Home\\Form.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABoAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-10T08:43:28.25Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "D:\\WORK\\PROJECTS\\PRACTICE\\CS\\7\\Web_6\\Views\\Home\\Edit.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\Edit.cshtml",
               "ToolTip": "D:\\WORK\\PROJECTS\\PRACTICE\\CS\\7\\Web_6\\Views\\Home\\Edit.cshtml",
               "RelativeToolTip": "Views\\Home\\Edit.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAAHAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-09T17:33:53.354Z"
+              "WhenOpened": "2025-03-10T09:07:24.644Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "HomeController.cs",
               "DocumentMoniker": "D:\\WORK\\PROJECTS\\PRACTICE\\CS\\7\\Web_6\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
               "ToolTip": "D:\\WORK\\PROJECTS\\PRACTICE\\CS\\7\\Web_6\\Controllers\\HomeController.cs",
               "RelativeToolTip": "Controllers\\HomeController.cs",
-              "ViewState": "AgIAAFYAAAAAAAAAAAAQwGAAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAYwBYAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-08T08:58:03.04Z",
               "EditorCaption": ""

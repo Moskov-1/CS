@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Web_6.Data;
 using Web_6.Models;
 
@@ -20,27 +21,24 @@ public class HomeController : Controller
     {
         return View();
     }
-    [HttpGet("Works")]
-    [HttpGet("Home/Works")]
 
-    public string Works()
-    {
-        return "works";
-    }
     [HttpGet]
-    public IActionResult Form()
+    public async Task<IActionResult> Form()
     {
 
-        var users = _context.Users.ToList();
+        var users = await _context.Users.ToListAsync();        // ASYNC FETCH
         return View(users);
     }
+
+    // No Data => No Need for ASYNC.
     [HttpGet]
     public IActionResult Create()
     {
         return View();
     }
+
     [HttpPost]
-    public IActionResult Create(User user, string ConfirmPass)
+    public async Task<IActionResult> Create(User user, string ConfirmPass)
     {
         if (user.Pass != ConfirmPass)
         {
@@ -53,12 +51,12 @@ public class HomeController : Controller
         }
         user.Pass = crpyt.Encrpyt(user.Pass);
         _context.Users.Add(user);
-        _context.SaveChanges();
+        await _context.SaveChangesAsync();          // ASYNC SAVE
         return RedirectToAction("Form");
     }
-    public IActionResult Details(int id)
+    public async Task<IActionResult> Details(int id)
     {
-        var user = _context.Users.FirstOrDefault(x => x.Id == id);
+        var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == id);       // FETCH ASYNC
         if (user == null)
         {
             return NotFound();
@@ -66,9 +64,9 @@ public class HomeController : Controller
         return View(user);
     }
     [HttpGet]
-    public IActionResult Edit(int id)
+    public async Task<IActionResult> Edit(int id)
     {
-        var user = _context.Users.FirstOrDefault(x => x.Id == id);
+        var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == id);       // FETCH ASYNC
         if (user == null)
         {
             return NotFound();
@@ -78,13 +76,13 @@ public class HomeController : Controller
     }
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult Edit(User user)
+    public async Task<IActionResult> Edit(User user)            // 2 ASYNCS'
     {
         if (!ModelState.IsValid)
         {
             return View(user); 
         }
-        var dbUser = _context.Users.FirstOrDefault(x => x.Id == user.Id);
+        var dbUser = await _context.Users.FirstOrDefaultAsync(x => x.Id == user.Id);        // FETCH ASYNC
         if (dbUser == null)
         {
             return NotFound();
@@ -92,30 +90,30 @@ public class HomeController : Controller
         dbUser.Name = user.Name; 
         dbUser.Age = user.Age;
 
-        _context.SaveChanges();
+        await _context.SaveChangesAsync();              // SAVE ASYNC
         return RedirectToAction("Form");
     }
-    public IActionResult Delete(int id)
+    public async Task<IActionResult> Delete(int id)
     {
-        var user = _context.Users.FirstOrDefault(x => x.Id == id);
+        var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == id);               // FETCH ASYNC
         if(user == null)
         {
             return NotFound();
         }
-        return View(user);
+        return RedirectToAction("Form");
     }
 
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
-    public IActionResult YesDelete(int id)
+    public async Task<IActionResult> YesDelete(int id)                          // 2 ASYNC
     {
-        var user = _context.Users.FirstOrDefault(x => x.Id == id);
+        var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == id);                // FETCH ASYNC
         if (user == null)
         {
             return NotFound();
         }
         _context.Users.Remove(user);
-        _context.SaveChanges();
+        await _context.SaveChangesAsync();                  // SAVE ASYNC
         return View(user);
     }
     public IActionResult Privacy()
