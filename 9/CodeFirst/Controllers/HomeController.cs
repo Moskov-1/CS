@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 using CodeFirst.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
+using System;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.CodeAnalysis.Scripting;
 
 namespace CodeFirst.Controllers;
 
@@ -23,18 +26,65 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult SessionTestCreate()
     {
-        
+        //Console.WriteLine("IN");
         return View();
     }
-    public async Task<IActionResult> SessionTestCreate(User user)
-    {   
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> SessionTestCreate(User user, string ConfirmPass)
+    {
+        if (user.Pass != ConfirmPass)
+        {
+            ModelState.AddModelError("ConfirmPass", "Password needs to be the same");
+        }
 
-        HttpContext.Session.SetString("user", $"{user.Name}");
-        HttpContext.Session.SetString("userId", $"{user.Id}");
+        if (!ModelState.IsValid)
+        {
+            Console.WriteLine("Requests were stuck in back log !");
+            return View();
+        }
+
         await _context.Users.AddAsync(user);
+        await _context.SaveChangesAsync(); 
+
         ViewData["CreateSuccess"] = "Success";
+
         return View();
     }
+    public IActionResult Login()
+    {
+        if (HttpContext.Session.GetString("userId") == null)
+        {
+            return View();
+        }
+        return RedirectToAction("Index");
+    }
+    [HttpPost]
+    public async Task<IActionResult> Login(User user)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View();
+        }
+
+        var dbUser = await _context.Users.FirstOrDefaultAsync(x => x.Name == user.Name && x.Pass == user.Pass);
+        if(user == null)
+        {
+            ModelState.AddModelError("Invalid_Login","Invalid Login Attempt");
+            return View();
+        }
+        HttpContext.Session.SetString("userName", $"{dbUser.Name}");
+        HttpContext.Session.SetString("userId", $"{dbUser.Id}");
+
+        return RedirectToAction("Index");
+
+    }
+    public IActionResult Logout()
+    {
+        HttpContext.Session.Clear();
+        return RedirectToAction("Login");
+    }
+
     public async Task<IActionResult> GetAllUsers()
     {
         var users = await _context.Users.ToListAsync();
